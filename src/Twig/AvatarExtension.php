@@ -10,7 +10,6 @@ class AvatarExtension extends AbstractExtension
 
   public function getFunctions(): array
   {
-    dd("ja");
     return [
       new TwigFunction('avatar_url', [$this, 'avatarURL'] , ['is_safe' => ['html']]),
       // 
@@ -26,8 +25,7 @@ class AvatarExtension extends AbstractExtension
     return "https://ui-avatars.com/api/?" . http_build_query([
       "name" =>strip_tags($name),
       "size" => "64",
-      "background" => "ff0000",
-      "hier" => "ja",
+      "background" => "random",
     ]);
   }
 }
