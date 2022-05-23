@@ -6,12 +6,13 @@ use Twig\Extension\RuntimeExtensionInterface;
 
 class AvatarRuntime implements RuntimeExtensionInterface
 {
+  final public const ROOT_URL = 'https://ui-avatars.com/api/';
+
   public function __construct(private int $iconSize, private string $backgroundColor, private ?string $fontColor, private bool $rounded, private bool $bold)
   {
   }
 
-
-  public function avatarURL(?string $name = null): string
+  public function avatarURL(?string $name = null, ?int $size = null, ?string $background = null, ?string $fontColor = null, ?bool $rounded = null): string
   {
     if (!$name) {
       return '';
@@ -19,20 +20,20 @@ class AvatarRuntime implements RuntimeExtensionInterface
 
     $values = [
       'name' => strip_tags($name),
-      'size' => $this->iconSize,
-      'background' => $this->backgroundColor,
+      'size' => $size ?? $this->iconSize,
+      'background' => $background ?? $this->backgroundColor,
     ];
 
-    if ($this->fontColor) {
-      $values['color'] = $this->fontColor;
+    if ($fontColor ?? $this->fontColor) {
+      $values['color'] = $fontColor ?? $this->fontColor;
     }
-    if ($this->rounded) {
+    if (!($rounded === false) && ($rounded || $this->rounded)) {
       $values['rounded'] = 'true';
     }
     if ($this->bold) {
       $values['bold'] = 'true';
     }
 
-    return 'https://ui-avatars.com/api/?' . http_build_query($values);
+    return self::ROOT_URL . '?' . http_build_query($values);
   }
 }
