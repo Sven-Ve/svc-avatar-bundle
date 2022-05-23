@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "v3.0.2";
-$message = "change render to renderForm";
+$version = "1.0.0";
+$message = "first productive version";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);
