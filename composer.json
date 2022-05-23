@@ -1,0 +1,36 @@
+{
+    "name": "svc/avatar-bundle",
+    "description": "get the url for an avatar image as a twig function",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sven Vetter",
+            "email": "git.09o@svenvetter.com"
+        }
+    ],
+    "require": {
+        "php": "^8",
+        "symfony/framework-bundle": "5.4.*|^6",
+        "symfony/twig-bundle": "5.4.*|^6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Svc\\AvatarBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Svc\\AvatarBundle\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "5.4.*|^6",
+        "symfony/browser-kit": "5.4.*|^6",
+        "phpstan/phpstan": "^1"
+    },
+    "scripts": {
+        "test": "vendor/bin/simple-phpunit",
+        "phpstan": "vendor/bin/phpstan analyse src/ --level 5 -c .phpstan.neon"
+    }
+}
