@@ -16,12 +16,12 @@ class SvcAvatarExtension extends Extension
 
     $configuration = $this->getConfiguration($configs, $container);
     $config = $this->processConfiguration($configuration, $configs);
-/*
-    $definition = $container->getDefinition('svc_contactform.controller.contact');
-    $definition->setArgument(0, $config['enable_captcha']);
-    $definition->setArgument(1, $config['contact_mail']);
-    $definition->setArgument(2, $config['route_after_send']);
-    $definition->setArgument(3, $config['enable_copy_to_me']);
-*/
+
+    $definition = $container->getDefinition('svc_avatar.twig_runtime');
+    $definition->setArgument(0, $config['size']);
+    $definition->setArgument(1, $config['backgroundcolor']);
+    $definition->setArgument(2, $config['fontcolor'] ?? null);
+    $definition->setArgument(3, $config['rounded'] ?? false);
+    $definition->setArgument(4, $config['bold'] ?? false);
   }
 }
