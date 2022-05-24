@@ -18,10 +18,11 @@ class SvcAvatarExtension extends Extension
     $config = $this->processConfiguration($configuration, $configs);
 
     $definition = $container->getDefinition('svc_avatar.twig_runtime');
-    $definition->setArgument(0, $config['size']);
-    $definition->setArgument(1, $config['backgroundcolor']);
+    $definition->setArgument(0, $config['size'] ?? 32);
+    $definition->setArgument(1, $config['backgroundcolor'] ?? 'random');
     $definition->setArgument(2, $config['fontcolor'] ?? null);
     $definition->setArgument(3, $config['rounded'] ?? false);
     $definition->setArgument(4, $config['bold'] ?? false);
+    $definition->setArgument(5, $config['retina'] ?? true);
   }
 }

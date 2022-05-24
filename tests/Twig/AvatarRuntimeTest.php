@@ -16,7 +16,13 @@ final class AvatarRuntimeTest extends TestCase
 
   public function setup(): void
   {
-    $this->avatarRuntime = new AvatarRuntime(32, 'ff0000', 'fff', false, false);
+    $this->avatarRuntime = new AvatarRuntime(32, 'ff0000', 'fff', false, false, true);
+  }
+
+  public function testURLEmptyName(): void
+  {
+    $url = $this->avatarRuntime->avatarURL();
+    $this->assertEmpty($url);
   }
 
   public function testURLWithoutParameter(): void
@@ -53,5 +59,23 @@ final class AvatarRuntimeTest extends TestCase
 
     $url = $this->avatarRuntime->avatarURL('test', null, null, null, false);
     $this->assertSame($url, $this->avatarRuntime::ROOT_URL . '?name=test&size=32&background=ff0000&color=fff');
+  }
+
+  public function testTagWithoutParameter(): void
+  {
+    $url = $this->avatarRuntime->avatarImg('test');
+    $this->assertSame($url, "<img src='" . $this->avatarRuntime::ROOT_URL . "?name=test&size=64&background=ff0000&color=fff' height=32 width=32 alt='test' title='test'>");
+  }
+
+  public function testTagWithSize(): void
+  {
+    $url = $this->avatarRuntime->avatarImg('test', 100);
+    $this->assertSame($url, "<img src='" . $this->avatarRuntime::ROOT_URL . "?name=test&size=200&background=ff0000&color=fff' height=100 width=100 alt='test' title='test'>");
+  }
+
+  public function testTagEmptyName(): void
+  {
+    $url = $this->avatarRuntime->avatarImg();
+    $this->assertEmpty($url);
   }
 }

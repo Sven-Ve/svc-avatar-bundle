@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "1.0.0";
-$message = "first productive version";
+$version = "1.1.0";
+$message = "added avatar_img function";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);

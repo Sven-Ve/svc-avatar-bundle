@@ -11,6 +11,7 @@ class AvatarExtension extends AbstractExtension
   {
     return [
       new TwigFunction('avatar_url', [AvatarRuntime::class, 'avatarURL'], ['is_safe' => ['html']]),
+      new TwigFunction('avatar_img', [AvatarRuntime::class, 'avatarImg'], ['is_safe' => ['html']]),
     ];
   }
 }
