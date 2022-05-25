@@ -1,13 +1,20 @@
 #!/usr/bin/env php
 <?php
 
-$version = "1.1.0";
-$message = "added avatar_img function";
+$version = "1.1.1";
+$message = "added documentation";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);
 if ($res>0) {
   echo("\nError during execution phpstan. Releasing cannceled.\n");
+  return 1;
+}
+
+echo("Running tests:\n");
+system("composer run-script test", $res);
+if ($res>0) {
+  echo("\nError during execution test scripts. Releasing cannceled.\n");
   return 1;
 }
 
