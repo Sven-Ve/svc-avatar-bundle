@@ -15,3 +15,8 @@
 ## Version 1.1.1
 *Wed, 25 May 2022 19:25:54 +0000*
 - added documentation
+
+
+## Version 4.0.0
+*Sat, 16 Jul 2022 20:15:33 +0000*
+- build with Symfony 6.1 bundle features

@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Svc\AvatarBundle\Twig\AvatarExtension:
+    tags: ['twig.extension']
+
+  Svc\AvatarBundle\Twig\AvatarRuntime:
+    tags: [ 'twig.runtime' ]
