@@ -17,7 +17,6 @@
 - build with Symfony 6.1 bundle features, runs only with symfony 6.1
 - The version jump comes from the synchronization of all svc bundle versions.
 
-
 ## Version 4.0.1
 *Sun, 17 Jul 2022 09:54:16 +0000*
 - added warning for Symfony version
