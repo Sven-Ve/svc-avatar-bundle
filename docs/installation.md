@@ -34,6 +34,6 @@ in the `config/bundles.php` file of your project:
 
 return [
     // ...
-    Svc\UtilBundle\SvcAvatarBundle::class => ['all' => true],
+    Svc\AvatarBundle\SvcAvatarBundle::class => ['all' => true],
 ];
 ```
