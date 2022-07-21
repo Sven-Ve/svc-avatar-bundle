@@ -20,3 +20,8 @@
 ## Version 4.0.1
 *Sun, 17 Jul 2022 09:54:16 +0000*
 - added warning for Symfony version
+
+
+## Version 4.0.2
+*Thu, 21 Jul 2022 18:43:06 +0000*
+- licence year update

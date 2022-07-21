@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-$version = "4.0.1";
-$message = "added warning for Symfony version";
+$version = "4.0.2";
+$message = "licence year update";
 
 echo("Running phpstan:\n");
 system("composer run-script phpstan", $res);
