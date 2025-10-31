@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(composer phpstan:*)"
+      "Bash(composer phpstan:*)",
+      "Bash(composer test:*)",
+      "Bash(/opt/homebrew/bin/php-cs-fixer fix:*)"
     ],
     "deny": [],
     "ask": []

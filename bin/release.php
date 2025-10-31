@@ -12,8 +12,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-$version = '5.0.2';
-$message = 'ready for symfony 6.4 and 7 (fixed twig version)';
+$version = '5.1.0';
+$message = 'Enhance configuration validation, improve code quality and documentation, add security measures for avatar generation functions';
 
 echo "Running phpstan:\n";
 system('composer run-script phpstan', $res);

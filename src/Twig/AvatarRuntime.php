@@ -15,6 +15,9 @@ namespace Svc\AvatarBundle\Twig;
 
 use Twig\Extension\RuntimeExtensionInterface;
 
+/**
+ * Twig runtime for generating avatar URLs and IMG tags using ui-avatars.com API.
+ */
 class AvatarRuntime implements RuntimeExtensionInterface
 {
     final public const ROOT_URL = 'https://ui-avatars.com/api/';
@@ -23,7 +26,19 @@ class AvatarRuntime implements RuntimeExtensionInterface
     {
     }
 
-    public function avatarURL(?string $name = null, ?int $size = null, ?string $background = null, ?string $fontColor = null, ?bool $rounded = null): string
+    /**
+     * Generate an avatar URL for the given name.
+     *
+     * @param string|null $name       The name or email to generate avatar for (will be sanitized)
+     * @param int|null    $size       Avatar size in pixels (default: configured size)
+     * @param string|null $background Hex background color without # (default: configured or 'random')
+     * @param string|null $fontColor  Hex font color without # (default: configured)
+     * @param bool|null   $rounded    Whether to generate circular avatar (default: configured)
+     * @param bool|null   $bold       Whether to use bold font (default: configured)
+     *
+     * @return string The generated avatar URL or empty string if name is empty
+     */
+    public function avatarURL(?string $name = null, ?int $size = null, ?string $background = null, ?string $fontColor = null, ?bool $rounded = null, ?bool $bold = null): string
     {
         if (!$name) {
             return '';
@@ -41,27 +56,43 @@ class AvatarRuntime implements RuntimeExtensionInterface
         if (!($rounded === false) && ($rounded || $this->rounded)) {
             $values['rounded'] = 'true';
         }
-        if ($this->bold) {
+        $useBold = $bold ?? $this->bold;
+        if ($useBold) {
             $values['bold'] = 'true';
         }
 
         return self::ROOT_URL . '?' . http_build_query($values);
     }
 
-    public function avatarImg(?string $name = null, ?int $size = null, ?string $background = null, ?string $fontColor = null, ?bool $rounded = null): string
+    /**
+     * Generate a complete IMG HTML tag for the given name.
+     *
+     * @param string|null $name       The name or email to generate avatar for (will be sanitized and HTML-escaped)
+     * @param int|null    $size       Avatar size in pixels (default: configured size)
+     * @param string|null $background Hex background color without # (default: configured or 'random')
+     * @param string|null $fontColor  Hex font color without # (default: configured)
+     * @param bool|null   $rounded    Whether to generate circular avatar (default: configured)
+     * @param bool|null   $bold       Whether to use bold font (default: configured)
+     * @param bool|null   $retina     Whether to optimize for retina displays (default: configured)
+     *
+     * @return string The generated IMG tag with proper HTML escaping or empty string if name is empty
+     */
+    public function avatarImg(?string $name = null, ?int $size = null, ?string $background = null, ?string $fontColor = null, ?bool $rounded = null, ?bool $bold = null, ?bool $retina = null): string
     {
         if (!$name) {
             return '';
         }
         $name = strip_tags($name);
+        $escapedName = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
         $size = $size ?? $this->iconSize;
-        $sizeRet = $size * ($this->retina ? 2 : 1);
+        $useRetina = $retina ?? $this->retina;
+        $sizeRet = $size * ($useRetina ? 2 : 1);
 
-        $tag = "<img src='" . $this->avatarURL($name, $sizeRet, $background, $fontColor, $rounded) .
-          "' height=" . $size .
-          ' width=' . $size .
-          " alt='" . $name . "'" .
-          " title='" . $name . "'" .
+        $tag = '<img src="' . htmlspecialchars($this->avatarURL($name, $sizeRet, $background, $fontColor, $rounded, $bold), ENT_QUOTES, 'UTF-8') .
+          '" height="' . $size .
+          '" width="' . $size .
+          '" alt="' . $escapedName . '"' .
+          ' title="' . $escapedName . '"' .
           '>';
 
         return $tag;

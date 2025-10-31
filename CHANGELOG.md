@@ -40,3 +40,8 @@
 ## Version 5.0.2
 *Sun, 17 Dec 2023 16:16:23 +0000*
 - ready for symfony 6.4 and 7 (fixed twig version)
+
+
+## Version 5.1.0
+*Fri, 31 Oct 2025 20:05:19 +0000*
+- Enhance configuration validation, improve code quality and documentation, add security measures for avatar generation functions

@@ -16,8 +16,16 @@ namespace Svc\AvatarBundle\Twig;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
+/**
+ * Twig extension that registers avatar_url and avatar_img functions.
+ */
 class AvatarExtension extends AbstractExtension
 {
+    /**
+     * Register Twig functions for avatar generation.
+     *
+     * @return TwigFunction[]
+     */
     public function getFunctions(): array
     {
         return [
