@@ -26,10 +26,11 @@
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^6.3 || ^7",
-        "phpstan/phpstan": "^1.10"
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^12.3"
     },
     "scripts": {
-        "test": "vendor/bin/simple-phpunit",
+        "test": "vendor/bin/phpunit --testdox",
         "phpstan": "vendor/bin/phpstan analyse src/ --level 5 -c .phpstan.neon"
     }
 }
