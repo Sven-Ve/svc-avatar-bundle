@@ -21,7 +21,7 @@ use Svc\AvatarBundle\Twig\AvatarRuntime;
  */
 final class AvatarRuntimeTest extends TestCase
 {
-    private $avatarRuntime;
+    private AvatarRuntime $avatarRuntime;
 
     public function setup(): void
     {

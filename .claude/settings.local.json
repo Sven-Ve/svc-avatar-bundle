@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(composer phpstan:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
