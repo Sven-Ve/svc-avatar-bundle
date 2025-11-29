@@ -45,3 +45,8 @@
 ## Version 5.1.0
 *Fri, 31 Oct 2025 20:05:19 +0000*
 - Enhance configuration validation, improve code quality and documentation, add security measures for avatar generation functions
+
+
+## Version 5.2.0
+*Sat, 29 Nov 2025 16:19:14 +0000*
+- tested with symfony 7.4 and symfony 8.
