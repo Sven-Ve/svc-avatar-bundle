@@ -5,6 +5,8 @@
 [![License](https://poser.pugx.org/svc/avatar-bundle/license)](https://packagist.org/packages/svc/avatar-bundle) 
 [![Total Downloads](https://poser.pugx.org/svc/avatar-bundle/downloads)](https://packagist.org/packages/svc/avatar-bundle)
 [![PHP Version Require](http://poser.pugx.org/svc/avatar-bundle/require/php)](https://packagist.org/packages/svc/avatar-bundle)
+[![Symfony](https://img.shields.io/badge/symfony-6.3%2B%20|%207.2%2B%20|%208%2B-green)](https://symfony.com/)
+![Last commit](https://img.shields.io/github/last-commit/Sven-Ve/svc-avatar-bundle)"
 
 :warning: **Attention:** <br/> 
 From version 4.0 the bundle works only with Symfony >=6.1, because the new Bundle Configuration System is used.<br/>

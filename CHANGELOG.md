@@ -50,3 +50,8 @@
 ## Version 5.2.0
 *Sat, 29 Nov 2025 16:19:14 +0000*
 - tested with symfony 7.4 and symfony 8.
+
+
+## Version 5.3.0
+*Sun, 25 Jan 2026 19:57:30 +0000*
+- Enhance CI workflow with security audit, update copyright year, and improve documentation structure

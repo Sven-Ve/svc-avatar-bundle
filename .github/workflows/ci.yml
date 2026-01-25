@@ -41,3 +41,6 @@ jobs:
 
     - name: Run test suite
       run: composer run-script test
+
+    - name: Run audit (security check)
+      run: composer audit
